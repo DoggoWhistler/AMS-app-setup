@@ -4,7 +4,7 @@ This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
 
-## Running the $PROJECT_NAME in dev mode
+## Running the application in dev mode
 
 You can run your application in dev mode that enables live coding using:
 ```shell script
@@ -51,13 +51,13 @@ If you want to learn more about building native executables, please consult http
 
 - REST Client Classic ([guide](https://quarkus.io/guides/rest-client)): Call REST services
 - SmallRye OpenAPI ([guide](https://quarkus.io/guides/openapi-swaggerui)): Document your REST APIs with OpenAPI - comes with Swagger UI
-- Cucumber ([guide](https://quarkiverse.github.io/quarkiverse-docs/quarkus-cucumber/dev/index.html)): Run tests using Cucumber
-- SmallRye Fault Tolerance ([guide](https://quarkus.io/guides/microprofile-fault-tolerance)): Build fault-tolerant network services
+- SmallRye Fault Tolerance ([guide](https://quarkus.io/guides/smallrye-fault-tolerance)): Build fault-tolerant network services
 - Jacoco - Code Coverage ([guide](https://quarkus.io/guides/tests-with-coverage)): Jacoco test coverage support
 - OpenTelemetry ([guide](https://quarkus.io/guides/opentelemetry)): Use OpenTelemetry to trace services
-- RESTEasy Classic ([guide](https://quarkus.io/guides/resteasy)): REST endpoint framework implementing JAX-RS and more
+- RESTEasy Classic ([guide](https://quarkus.io/guides/resteasy)): REST endpoint framework implementing Jakarta REST and more
 - Logging JSON ([guide](https://quarkus.io/guides/logging#json-logging)): Add JSON formatter for console logging
-- SmallRye Health ([guide](https://quarkus.io/guides/microprofile-health)): Monitor service health
+- SmallRye Health ([guide](https://quarkus.io/guides/smallrye-health)): Monitor service health
+- Cucumber ([guide](https://quarkiverse.github.io/quarkiverse-docs/quarkus-cucumber/dev/index.html)): Run tests using Cucumber
 
 ## Provided Code
 

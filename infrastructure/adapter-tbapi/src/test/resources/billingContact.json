@@ -1,0 +1,116 @@
+{
+  "billingContact": {
+    "firstName": "Marius",
+    "lastName": "Ter Avest",
+    "name": "Mr. Marius Ter Avest",
+    "id": "9166440564413617813"
+  },
+  "inCollection": true,
+  "legalEntity": "TELENET",
+  "balance": {
+    "currency": {
+      "name": "Euro",
+      "code": "EUR"
+    },
+    "value": "218.07"
+  },
+  "billHandlingCode": {
+    "billHandlingCodeId": "21",
+    "name": "UTB - Email",
+    "id": "9148323234213628532"
+  },
+  "id": "9166440568213618016",
+  "billingPeriodicity": "1M",
+  "collectionsTreatmentColorCode": {
+    "name": "Green",
+    "id": "9148597640013634136"
+  },
+  "nextBillDate": "2023-05-21T00:00:00+02:00",
+  "paymentDueDate": "2023-05-06T00:00:00+02:00",
+  "defaultBillingAccount": {
+    "name": "Yes",
+    "id": "7777001"
+  },
+  "name": "BAPOST105651365",
+  "activePaymentArrangement": false,
+  "possessesFleetProducts": false,
+  "possessesSohoProducts": false,
+  "defaultCps": {
+    "name": "Belgium",
+    "id": "9148323228113628039",
+    "cpsId": "3"
+  },
+  "accountNumber": "105651365",
+  "doccleToken": "41988",
+  "customer": {
+    "id": "9166440568313617813"
+  },
+  "language": {
+    "name": "Dutch",
+    "description": "Dutch",
+    "id": "9148112822513629131",
+    "code": "NL"
+  },
+  "creditClass": {
+    "name": "Residential Credit Class",
+    "id": "9145303359413550287"
+  },
+  "taxFlag": {
+    "name": "Tax Inclusive",
+    "id": "9135457120213517226"
+  },
+  "billingMethod": {
+    "name": "Postpaid",
+    "id": "9140821474013892777"
+  },
+  "billStyle": {
+    "name": "UTB",
+    "id": "9144935430413608203"
+  },
+  "paymentMethod": {
+    "name": "Manual",
+    "id": "9144951827213640003"
+  },
+  "billDeliveryMethod": {
+    "name": "Digital",
+    "id": "9148224308413626715"
+  },
+  "accountStatus": {
+    "name": "Active",
+    "id": "9135405314613494989"
+  },
+  "invoicingCompany": {
+    "name": "Telenet",
+    "id": "9148156831413627831",
+    "invoicingCompanyId": "2"
+  },
+  "accountingMethod": {
+    "name": "Balance Forward",
+    "id": "9135456871313516983"
+  },
+  "billingAddress": {
+    "formattedAddress": "België, 2800 Mechelen, Telenet 2nd Loadteststraat, h. 46777",
+    "name": "46777",
+    "id": "9165291173913306619"
+  },
+  "billingStatus": {
+    "name": "Billable",
+    "id": "9135405314613494940"
+  },
+  "useForBillCommunications": {
+    "name": "E-mail",
+    "id": "9149002346613627831"
+  },
+  "href": "/api/v1/billingManagement/billingAccount/9166440568213618016",
+  "billPeriod": "1",
+  "billPeriodUnit": {
+    "name": "Month",
+    "id": "9135459200013517975"
+  },
+  "email": {
+    "name": "E-mail: onefor4mauristrere876@telenetgroup.be",
+    "id": "9166440561413617813",
+    "value": "onefor4mauristrere876@telenetgroup.be",
+    "@type": "E-mail"
+  }
+}

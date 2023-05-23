@@ -1,0 +1,28 @@
+variables:
+  PROJECT: "The name of your openshift namespace aka project"
+  PROJECT_TITLE: "name of the project"
+  MAVEN_BUILD_IMAGE: $CI_HARBOR_REGISTRY/ghcr/graalvm/jdk:22.3.2
+  DOCKERFILE_PATH: $CI_PROJECT_DIR/application/src/main/docker/Dockerfile.native
+
+include:
+  project: common/pipeline/templates
+  file: .gitlab-ci-base.yml
+  ref: "3"
+
+get-version:
+  extends: .get-version-base
+
+# Use the maven build for native images
+maven-build:
+  extends: .maven-build-native-base
+
+#Use the sonarqube check for native images
+sonarqube-check:
+  extends: .sonarqube-check-native-base
+
+publish-docker-image:
+  extends: .publish-docker-image-base
+
+deploy-dvp:
+  extends: .deploy-dvp-base
+  stage: deploy by dev squad
