@@ -3,6 +3,7 @@ FROM ${CONTAINER_REGISTRY}/quay/quarkus/quarkus-micro-image:2.0
 ARG APP=application/target/*-runner
 WORKDIR /work/
 
+RUN ls -la /work/
 COPY ${APP} /work/application
 RUN chown 1001 /work \
     && chmod "g+rwX" /work \
