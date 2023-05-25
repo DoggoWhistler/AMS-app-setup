@@ -23,7 +23,5 @@ sonarqube-check:
 
 publish-docker-image:
   extends: .publish-docker-image-base
-
-deploy-dvp:
-  extends: .deploy-dvp-base
-  stage: deploy by dev squad
+  needs:
+    - maven-build
