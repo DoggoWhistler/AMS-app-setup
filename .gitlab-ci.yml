@@ -22,29 +22,4 @@ sonarqube-check:
   extends: .sonarqube-check-native-base
 
 publish-docker-image:
-  stage: publish
-  image:
-    name: $CI_HARBOR_REGISTRY/gcr/kaniko-project/executor:debug
-    entrypoint: [ "" ]
-  script:
-    - mkdir -p /kaniko/.docker
-    - ls -lh application/target/*
-    - echo "{\"auths\":{\"$CI_HARBOR_REGISTRY\":{\"username\":\"$CI_HARBOR_REGISTRY_USERNAME\",\"password\":\"$CI_HARBOR_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
-    - |
-      /kaniko/executor \
-      --build-arg "CI_HARBOR_REGISTRY=$CI_HARBOR_REGISTRY" \
-      --context "$CI_PROJECT_DIR" \
-      --dockerfile "$DOCKERFILE_PATH" \
-      --label "APP_VERSION=${VERSION}" \
-      --label "CI_PROJECT_URL=${CI_PROJECT_URL}" \
-      --label "CI_COMMIT_REF_NAME=${CI_COMMIT_REF_NAME}" \
-      --label "CI_COMMIT_SHA=${CI_COMMIT_SHA}" \
-      --label "CI_COMMIT_TIMESTAMP=${CI_COMMIT_TIMESTAMP}" \
-      --label "CI_PROJECT_NAME=${CI_PROJECT_NAME}" \
-      --label "CI_PIPELINE_ID=${CI_PIPELINE_ID}" \
-      --label "CI_PIPELINE_IID=${CI_PIPELINE_IID}" \
-      --label "CI_PIPELINE_URL=${CI_PIPELINE_URL}" \
-      --destination ${DOCKER_IMAGE_NAME}:${VERSION} \
-      --destination ${DOCKER_IMAGE_NAME}:latest
-  needs:
-    - maven-build
+  extends: .publish-docker-image-base
