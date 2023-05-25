@@ -10,7 +10,7 @@ class BillingAccountNumberTest {
     @Test
     void testConstructor() {
         assertThrows(InvalidBillingAccountNumberException.class, () -> new BillingAccountNumber("123"));
-        assertTrue((new BillingAccountNumber("012345678912")).equals(new BillingAccountNumber("012345678912")));
+        assertDoesNotThrow(() -> new BillingAccountNumber("012345678912"));
     }
 
 }

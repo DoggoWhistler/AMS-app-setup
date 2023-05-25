@@ -12,7 +12,7 @@ import static io.restassured.RestAssured.given;
 public class ApiResourceTest {
 
     @Test
-    public void testFindBillingAccount() {
+    void testFindBillingAccount() {
         given()
                 .when().get("/api/v1/billing/32496362600")
                 .then()
@@ -21,7 +21,7 @@ public class ApiResourceTest {
     }
 
     @Test
-    public void testUpdateBillingAccount() {
+    void testUpdateBillingAccount() {
         BillingAccount billingAccount = BillingAccount.builder()
                 .billingAccountNumber(new BillingAccountNumber("012345678912"))
                 .msisdn(MSISDN.builder().msisdn("32496362600").build())

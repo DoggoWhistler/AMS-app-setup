@@ -10,7 +10,7 @@ import static org.hamcrest.Matchers.equalTo;
 class CustomHealthCheckTest {
 
     @Test
-    public void testHealthCheck() {
+    void testHealthCheck() {
         given()
                 .when().get("/q/health")
                 .then()
