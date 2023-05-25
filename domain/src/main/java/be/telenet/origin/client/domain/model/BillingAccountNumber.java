@@ -1,12 +1,16 @@
 package be.telenet.origin.client.domain.model;
 
-import lombok.Data;
+import be.telenet.origin.client.domain.model.exception.InvalidBillingAccountNumberException;
+import be.telenet.origin.client.domain.model.policy.BelgianBillingAccountNumberPolicy;
+import be.telenet.origin.client.domain.model.policy.BillingAccountNumberPolicy;
 
 public record BillingAccountNumber(String number) {
 
+    private static final BillingAccountNumberPolicy policy = new BelgianBillingAccountNumberPolicy();
+
     public BillingAccountNumber {
-        if (number == null || number.isBlank()) {
-            throw new IllegalArgumentException("Billing account number cannot be null or empty");
+        if (!policy.isValid(number)){
+            throw new InvalidBillingAccountNumberException(number);
         }
     }
 

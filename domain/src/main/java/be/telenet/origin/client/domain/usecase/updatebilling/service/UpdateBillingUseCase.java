@@ -1,8 +1,8 @@
 package be.telenet.origin.client.domain.usecase.updatebilling.service;
 
 import be.telenet.origin.client.domain.model.BillingAccount;
-import be.telenet.origin.client.domain.usecase.updatebilling.port.UpdateBillingUseCasePort;
 import be.telenet.origin.client.domain.usecase.updatebilling.port.BillingAccountRepositoryPort;
+import be.telenet.origin.client.domain.usecase.updatebilling.port.UpdateBillingUseCasePort;
 
 public class UpdateBillingUseCase implements UpdateBillingUseCasePort {
 

@@ -3,7 +3,8 @@ package be.telenet.origin.client.domain.model;
 import be.telenet.origin.client.domain.model.exception.InvalidMSISDNException;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MSISDNTest {
 

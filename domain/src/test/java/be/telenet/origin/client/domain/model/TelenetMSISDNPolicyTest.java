@@ -1,9 +1,10 @@
 package be.telenet.origin.client.domain.model;
 
-import be.telenet.origin.client.domain.model.exception.InvalidMSISDNException;
+import be.telenet.origin.client.domain.model.policy.TelenetMSISDNPolicy;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class TelenetMSISDNPolicyTest {
 

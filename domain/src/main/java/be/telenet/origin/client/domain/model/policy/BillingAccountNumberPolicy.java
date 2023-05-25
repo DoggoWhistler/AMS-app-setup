@@ -1,4 +1,4 @@
-package be.telenet.origin.client.domain.model;
+package be.telenet.origin.client.domain.model.policy;
 
 public interface BillingAccountNumberPolicy {
 

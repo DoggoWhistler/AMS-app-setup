@@ -1,6 +1,5 @@
 package be.telenet.origin.client.adaptor.tbapi;
 
-import be.telenet.origin.client.domain.usecase.findbilling.port.BillingAccountRepositoryPort;
 import be.telenet.origin.client.domain.model.BillingAccount;
 import be.telenet.origin.client.domain.model.MSISDN;
 import jakarta.enterprise.context.ApplicationScoped;

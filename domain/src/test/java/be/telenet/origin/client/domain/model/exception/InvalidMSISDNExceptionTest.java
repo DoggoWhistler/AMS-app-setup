@@ -2,7 +2,7 @@ package be.telenet.origin.client.domain.model.exception;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class InvalidMSISDNExceptionTest {
 

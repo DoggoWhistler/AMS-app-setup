@@ -1,7 +1,7 @@
-package be.telenet.origin.client.domain.model;
+package be.telenet.origin.client.domain.model.exception;
 
-public class InvalidBillingAccountNumberException extends Throwable {
+public class InvalidBillingAccountNumberException extends RuntimeException {
     public InvalidBillingAccountNumberException(String number) {
-        super("Invalid billing account number: " + number);
+        super(String.format("Invalid billing account %s", number));
     }
 }
