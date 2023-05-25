@@ -2,7 +2,7 @@ variables:
   PROJECT: "The name of your openshift namespace aka project"
   PROJECT_TITLE: "client-service-template-example"
   MAVEN_BUILD_IMAGE: $CI_HARBOR_REGISTRY/ghcr/graalvm/native-image:22.3.2
-  DOCKERFILE_PATH: $CI_PROJECT_DIR/application/src/main/docker/Dockerfile.native
+  DOCKERFILE_PATH: $CI_PROJECT_DIR/application/src/main/docker/Dockerfile.native-micro
   MAVEN_CLI: ./mvnw
 
 include:
