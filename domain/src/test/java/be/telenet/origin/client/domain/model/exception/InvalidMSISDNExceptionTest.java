@@ -8,7 +8,7 @@ class InvalidMSISDNExceptionTest {
 
     @Test
     void getMessage() {
-        assertEquals("Invalid IBAN 123", new InvalidMSISDNException("123").getMessage());
+        assertEquals("Invalid MSISDN 123", new InvalidMSISDNException("123").getMessage());
     }
 
 }

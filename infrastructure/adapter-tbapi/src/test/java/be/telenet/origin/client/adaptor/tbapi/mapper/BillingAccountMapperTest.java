@@ -14,14 +14,14 @@ class BillingAccountMapperTest {
     @Test
     public void shouldMapBillingAccountToDto() {
         //given
-        BillingAccount billingAccount = new BillingAccount(new BillingAccountNumber("1234"), new MSISDN("32496362600"));
+        BillingAccount billingAccount = new BillingAccount(new BillingAccountNumber("012345678912"), new MSISDN("32496362600"));
 
         //when
         BillingAccountDTO billingAccountDTO = BillingAccountMapper.INSTANCE.billingAccountToDTO(billingAccount);
 
         //then
         assertThat(billingAccountDTO).isNotNull();
-        assertThat(billingAccountDTO.id()).isEqualTo("1234");
+        assertThat(billingAccountDTO.id()).isEqualTo("012345678912");
     }
 
 }
