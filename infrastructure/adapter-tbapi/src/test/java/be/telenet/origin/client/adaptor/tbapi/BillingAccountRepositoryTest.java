@@ -18,7 +18,7 @@ class BillingAccountRepositoryTest {
 
     @Test
     void updateBillingAccountNotImplemented() {
-        assertThrows(RuntimeException.class, () -> new BillingAccountRepository(tbApiBillingService).updateBillingAccount(null));
+        assertNull(new BillingAccountRepository(tbApiBillingService).updateBillingAccount(null));
     }
 
 }
