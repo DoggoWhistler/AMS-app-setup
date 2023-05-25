@@ -25,6 +25,21 @@
     <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
     <archunit-junit5.version>1.0.1</archunit-junit5.version>
     <assertj-core.version>3.23.1</assertj-core.version>
+
+    <!-- jacoco Code Coverage Reports -->
+    <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
+    <sonar.projectName>Client Service Template</sonar.projectName>
+    <sonar.coverage.exclusions>
+      **/*Config*.java,
+      **/*Application.java,
+      **/ServletInitializer.java
+    </sonar.coverage.exclusions>
+    <!--suppress UnresolvedMavenProperty -->
+    <sonar.coverage.jacoco.xmlReportPaths>
+      ${maven.multiModuleProjectDirectory}/coverage-report/target/site/jacoco-aggregate/jacoco.xml
+    </sonar.coverage.jacoco.xmlReportPaths>
+    <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+    <sonar.language>java</sonar.language>
   </properties>
 
   <modules>
@@ -218,7 +233,68 @@
             </execution>
           </executions>
         </plugin>
+        <plugin>
+          <groupId>org.jacoco</groupId>
+          <artifactId>jacoco-maven-plugin</artifactId>
+          <version>${jacoco-maven-plugin.version}</version>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
+
+  <profiles>
+    <profile>
+      <id>ci</id>
+      <activation>
+        <property>
+          <name>gitlab-ci</name>
+        </property>
+      </activation>
+    </profile>
+    <profile>
+      <id>native</id>
+      <properties>
+        <quarkus.package.type>native</quarkus.package.type>
+        <skipITs>false</skipITs>
+      </properties>
+    </profile>
+    <profile>
+      <id>coverage</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>pre-unit-test</id>
+                <goals>
+                  <goal>prepare-agent</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>post-unit-test</id>
+                <phase>test</phase>
+                <goals>
+                  <goal>report</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>pre-integration-test</id>
+                <goals>
+                  <goal>prepare-agent-integration</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>post-integration-test</id>
+                <goals>
+                  <goal>report-integration</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>

@@ -26,8 +26,8 @@ public class ApiResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{msisdn}")
     public BillingAccount findBillingAccount(@PathParam("msisdn") String msisdn) {
+        log.debug("Find billing account: {}", msisdn);
         Optional<BillingAccount> billingAccount = findBillingUseCase.findBillingAccount(new MSISDN(msisdn));
-        log.info("Billing account found: {}", billingAccount);
         return billingAccount.orElseThrow(() -> new NotFoundException("Billing account not found"));
     }
     @PUT
@@ -35,6 +35,7 @@ public class ApiResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/")
     public void updateBillingAccount(BillingAccount billingAccount) {
-        updateBillingAccount(billingAccount);
+        log.info("Update billing account: {}", billingAccount.billingAccountNumber());
+        updateBillingUseCase.updateBillingAccount(billingAccount);
     }
 }
