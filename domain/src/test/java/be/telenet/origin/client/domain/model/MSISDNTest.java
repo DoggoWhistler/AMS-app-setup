@@ -8,12 +8,13 @@ import static org.junit.jupiter.api.Assertions.*;
 class MSISDNTest {
 
     @Test
-    public void testInvalidMSISDN() {
-        assertThrows(InvalidMSISDNException.class, () -> MSISDN.builder().msisdn("123").build());
+    void testInvalidMSISDN() {
+        MSISDN.MSISDNBuilder msisdn = MSISDN.builder().msisdn("123");
+        assertThrows(InvalidMSISDNException.class, () -> { msisdn.build(); });
     }
 
     @Test
-    public void testValidMSISDN() {
+    void testValidMSISDN() {
         assertDoesNotThrow(() -> MSISDN.builder().msisdn("32496362600").build());
     }
 
