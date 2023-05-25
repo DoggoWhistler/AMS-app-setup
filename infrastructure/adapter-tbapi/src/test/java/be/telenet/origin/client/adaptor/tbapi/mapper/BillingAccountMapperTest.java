@@ -1,6 +1,7 @@
 package be.telenet.origin.client.adaptor.tbapi.mapper;
 
-import be.telenet.origin.client.adaptor.tbapi.model.BillingAccountDTO;
+import be.telenet.origin.client.adaptor.tbapi.BillingAccountDTO;
+import be.telenet.origin.client.adaptor.tbapi.BillingAccountMapper;
 import be.telenet.origin.client.domain.model.BillingAccount;
 import be.telenet.origin.client.domain.model.BillingAccountNumber;
 import be.telenet.origin.client.domain.model.MSISDN;
@@ -20,7 +21,7 @@ class BillingAccountMapperTest {
 
         //then
         assertThat(billingAccountDTO).isNotNull();
-        assertThat(billingAccountDTO.getId()).isEqualTo("1234");
+        assertThat(billingAccountDTO.id()).isEqualTo("1234");
     }
 
 }

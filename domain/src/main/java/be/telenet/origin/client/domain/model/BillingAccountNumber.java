@@ -2,13 +2,12 @@ package be.telenet.origin.client.domain.model;
 
 import lombok.Data;
 
-@Data
-public class BillingAccountNumber {
+public record BillingAccountNumber(String number) {
 
-    private String number;
-
-    public BillingAccountNumber(String value) {
-        this.number = value;
+    public BillingAccountNumber {
+        if (number == null || number.isBlank()) {
+            throw new IllegalArgumentException("Billing account number cannot be null or empty");
+        }
     }
 
 }

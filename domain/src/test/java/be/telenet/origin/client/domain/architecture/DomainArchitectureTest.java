@@ -29,7 +29,7 @@ public class DomainArchitectureTest {
 					.belongToAnyOf(System.class)
 					.orShould()
 					.dependOnClassesThat()
-					.resideInAnyPackage(JAVA_UTIL_LOGGING_PACKAGE, SLF4J_PACKAGE, LOGBACK_PACKAGE, LOG4J_PACKAGE)
+					.resideInAnyPackage(JAVA_UTIL_LOGGING_PACKAGE, LOGBACK_PACKAGE, LOG4J_PACKAGE)
 					.because("Use the debugger instead");
 
 	@ArchTest

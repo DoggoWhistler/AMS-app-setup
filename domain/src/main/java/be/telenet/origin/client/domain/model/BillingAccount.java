@@ -1,16 +1,8 @@
 package be.telenet.origin.client.domain.model;
 
+import lombok.Builder;
 import lombok.Data;
 
-@Data
-public class BillingAccount {
-
-    private final BillingAccountNumber billingAccountNumber;
-    private final MSISDN msisdn;
-
-    public BillingAccount(BillingAccountNumber billingAccountNumber, MSISDN msisdn) {
-        this.billingAccountNumber = billingAccountNumber;
-        this.msisdn = msisdn;
-    }
-
+@Builder
+public record BillingAccount(BillingAccountNumber billingAccountNumber, MSISDN msisdn) {
 }
