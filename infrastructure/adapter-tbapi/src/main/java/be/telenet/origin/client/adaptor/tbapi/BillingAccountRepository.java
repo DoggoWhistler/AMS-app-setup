@@ -31,6 +31,6 @@ public class BillingAccountRepository implements be.telenet.origin.client.domain
     @Override
     public BillingAccount updateBillingAccount(BillingAccount billingAccount) {
         log.error("Not implemented");
-        return null;
+        throw new RuntimeException("Not implemented");
     }
 }

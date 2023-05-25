@@ -32,7 +32,6 @@ public class ApiResource {
     }
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
     @Path("/")
     public void updateBillingAccount(BillingAccount billingAccount) {
         log.info("Update billing account: {}", billingAccount.billingAccountNumber());

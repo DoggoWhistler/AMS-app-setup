@@ -10,6 +10,8 @@ class TelenetMSISDNPolicyTest {
 
     @Test
     void testPolicy() {
+        assertFalse(new TelenetMSISDNPolicy().isValid(null));
+        assertFalse(new TelenetMSISDNPolicy().isValid(""));
         assertFalse(new TelenetMSISDNPolicy().isValid("123"));
         assertTrue(new TelenetMSISDNPolicy().isValid("32496362678"));
     }
