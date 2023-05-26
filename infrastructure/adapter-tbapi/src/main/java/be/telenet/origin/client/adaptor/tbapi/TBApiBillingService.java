@@ -1,5 +1,6 @@
 package be.telenet.origin.client.adaptor.tbapi;
 
+import be.telenet.origin.client.adaptor.tbapi.model.BillingAccountDTO;
 import jakarta.enterprise.context.Dependent;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;

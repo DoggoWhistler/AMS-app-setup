@@ -8,7 +8,7 @@ class BelgianBillingAccountNumberPolicyTest {
 
     @Test
     void testIsValid() {
-        assertFalse((new BelgianBillingAccountNumberPolicy()).isValid("42"));
+        assertFalse((new BelgianBillingAccountNumberPolicy()).isValid("bla"));
         assertFalse((new BelgianBillingAccountNumberPolicy()).isValid(""));
         assertFalse((new BelgianBillingAccountNumberPolicy()).isValid(null));
         assertTrue((new BelgianBillingAccountNumberPolicy()).isValid("012345678912"));

@@ -13,7 +13,7 @@ class TelenetMSISDNPolicyTest {
         assertFalse(new TelenetMSISDNPolicy().isValid(null));
         assertFalse(new TelenetMSISDNPolicy().isValid(""));
         assertFalse(new TelenetMSISDNPolicy().isValid("123"));
-        assertTrue(new TelenetMSISDNPolicy().isValid("32496362678"));
+        assertTrue(new TelenetMSISDNPolicy().isValid(" 0496362678"));
     }
 
 }

@@ -4,6 +4,6 @@ public class BelgianBillingAccountNumberPolicy implements BillingAccountNumberPo
 
         @Override
         public boolean isValid(String accountNumber) {
-            return accountNumber != null && accountNumber.matches("^[0-9]{12}$");
+            return accountNumber != null && accountNumber.matches("^[0-9]{1,30}$");
         }
 }
