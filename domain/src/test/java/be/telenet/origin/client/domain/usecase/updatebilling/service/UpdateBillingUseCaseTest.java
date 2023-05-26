@@ -14,9 +14,9 @@ class UpdateBillingUseCaseTest {
     @Test
     void testConstructor() {
         UpdateBillingUseCase updateBillingUseCase = new UpdateBillingUseCase(repository);
-        BillingAccount billingAccount = updateBillingUseCase.updateBillingAccount(BillingAccount.builder().msisdn(MSISDN.builder().msisdn(" 0496362600").build()).build());
+        BillingAccount billingAccount = updateBillingUseCase.updateBillingAccount(BillingAccount.builder().msisdn(MSISDN.builder().msisdn( "0496362600").build()).build());
 
-        assertThat(billingAccount.msisdn().msisdn()).isEqualTo(" 0496362600");
+        assertThat(billingAccount.msisdn().msisdn()).isEqualTo( "0496362600");
     }
 
 }

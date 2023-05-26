@@ -14,7 +14,7 @@ public class ApiResourceTest {
     @Test
     void testFindBillingAccount() {
         given()
-                .when().get("/api/v1/billing/ 0496362600")
+                .when().get("/api/v1/billing/0496362600")
                 .then()
                 .statusCode(200)
         ;
@@ -24,7 +24,7 @@ public class ApiResourceTest {
     void testUpdateBillingAccount() {
         BillingAccount billingAccount = BillingAccount.builder()
                 .billingAccountNumber(new BillingAccountNumber("012345678912"))
-                .msisdn(MSISDN.builder().msisdn(" 0496362600").build())
+                .msisdn(MSISDN.builder().msisdn( "0496362600").build())
                 .build();
         given()
                 .body(billingAccount)

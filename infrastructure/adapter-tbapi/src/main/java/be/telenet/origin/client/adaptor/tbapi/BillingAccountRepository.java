@@ -4,12 +4,12 @@ import be.telenet.origin.client.adaptor.tbapi.model.BillingAccountDTO;
 import be.telenet.origin.client.domain.model.BillingAccount;
 import be.telenet.origin.client.domain.model.MSISDN;
 import jakarta.enterprise.context.ApplicationScoped;
-import lombok.extern.slf4j.Slf4j;
+ import lombok.extern.jbosslog.JBossLog;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import java.util.Optional;
 
-@Slf4j
+@JBossLog
 @ApplicationScoped
 public class BillingAccountRepository implements be.telenet.origin.client.domain.usecase.findbilling.port.BillingAccountRepositoryPort, be.telenet.origin.client.domain.usecase.updatebilling.port.BillingAccountRepositoryPort {
 
@@ -31,7 +31,7 @@ public class BillingAccountRepository implements be.telenet.origin.client.domain
 
     @Override
     public BillingAccount updateBillingAccount(BillingAccount billingAccount) {
-        log.error("Not implemented");
+        log.errorf("Not implemented");
         return null;
     }
 }

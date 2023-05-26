@@ -81,6 +81,16 @@
             <artifactId>quarkus-smallrye-health</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.jboss.logging</groupId>
+            <artifactId>commons-logging-jboss-logging</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.2</version>
+        </dependency>
+
         <!-- test stuff -->
 <!--        <dependency>-->
 <!--            <groupId>io.quarkiverse.cucumber</groupId>-->

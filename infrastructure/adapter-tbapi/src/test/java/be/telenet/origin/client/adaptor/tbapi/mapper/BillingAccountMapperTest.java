@@ -14,7 +14,7 @@ class BillingAccountMapperTest {
     @Test
     public void shouldMapBillingAccountToDto() {
         //given
-        BillingAccount billingAccount = new BillingAccount(new BillingAccountNumber("012345678912"), new MSISDN(" 0496362600"));
+        BillingAccount billingAccount = new BillingAccount(new BillingAccountNumber("012345678912"), new MSISDN( "0496362600"));
 
         //when
         BillingAccountDTO billingAccountDTO = BillingAccountMapper.INSTANCE.billingAccountToDTO(billingAccount);

@@ -18,15 +18,4 @@ public class ApplicationConfig {
         return new FindBillingUseCase(findBillingRepository);
     }
 
-//    @Produces
-//    @ApplicationScoped
-//    @RegisterRestClient
-//    public TBApiBillingService tbApiBillingService(){
-//        return new TBApiBillingService(findBillingRepository) {
-//            @Override
-//            public BillingAccountDTO getBillingAccountByMSISDN(String msisdn) {
-//                return null;
-//            }
-//        };
-//    }
 }

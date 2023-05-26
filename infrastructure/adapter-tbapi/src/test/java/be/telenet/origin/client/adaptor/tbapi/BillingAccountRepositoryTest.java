@@ -12,7 +12,7 @@ class BillingAccountRepositoryTest {
 
     @Test
     void findBillingAccount() {
-        new BillingAccountRepository(tbApiBillingService).findBillingAccount(new MSISDN(" 0496362600")).ifPresentOrElse(
+        new BillingAccountRepository(tbApiBillingService).findBillingAccount(new MSISDN( "0496362600")).ifPresentOrElse(
                 billingAccount -> assertEquals("012345678912", billingAccount.billingAccountNumber().number()),
                 () -> fail("Billing account not found"));
     }

@@ -16,7 +16,7 @@ class MSISDNTest {
 
     @Test
     void testValidMSISDN() {
-        assertDoesNotThrow(() -> MSISDN.builder().msisdn(" 0496362600").build());
+        assertDoesNotThrow(() -> MSISDN.builder().msisdn( "0496362600").build());
     }
 
 }

@@ -36,8 +36,8 @@ class FindBillingUseCaseTest {
     @Test
     @DisplayName("When looking up a billing account for a mobile number, it should return the billing account")
     void findBillingAccountWithValidMsisdn() {
-        repository.persistBillingAccount(new BillingAccount(new BillingAccountNumber("012345678912"), new MSISDN("32470123456")));
-        Optional<BillingAccount> billingAccount = useCase.findBillingAccount(new MSISDN("32470123456"));
+        repository.persistBillingAccount(new BillingAccount(new BillingAccountNumber("012345678912"), new MSISDN("0470123456")));
+        Optional<BillingAccount> billingAccount = useCase.findBillingAccount(new MSISDN("0470123456"));
         assertThat(billingAccount).isPresent();
     }
 

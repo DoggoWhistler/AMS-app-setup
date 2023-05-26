@@ -6,7 +6,7 @@ import be.telenet.origin.client.domain.usecase.findbilling.port.FindBillingUseCa
 import be.telenet.origin.client.domain.usecase.updatebilling.port.UpdateBillingUseCasePort;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
-import lombok.extern.slf4j.Slf4j;
+import lombok.extern.jbosslog.JBossLog;
 import org.eclipse.microprofile.openapi.annotations.ExternalDocumentation;
 import org.eclipse.microprofile.openapi.annotations.media.ExampleObject;
 import org.eclipse.microprofile.openapi.annotations.parameters.Parameter;
@@ -15,7 +15,7 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 import java.util.Optional;
 
 @Path("/api/v1/billing")
-@Slf4j
+@JBossLog
 @Tag(name = "Example API", description = "This is an example API for new rest services. Be sure to document it.",
         externalDocs = @ExternalDocumentation(description = "Confluence", url = "https://confluence.rel.apps.telenet.be/display/myspace/client-service-example/REST+API+Documentation"))
 public class ApiResource {
@@ -31,8 +31,8 @@ public class ApiResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{msisdn}")
-    public BillingAccount findBillingAccount(@PathParam("msisdn") @Parameter(example = "0469213586") String msisdn) {
-        log.debug("Find billing account: {}", msisdn);
+    public BillingAccount findBillingAccount(@PathParam("msisdn") @Parameter(example = "0467917023") String msisdn) {
+        log.debugf("Find billing account: {}", msisdn);
         Optional<BillingAccount> billingAccount = findBillingUseCase.findBillingAccount(new MSISDN(msisdn));
         return billingAccount.orElseThrow(() -> new NotFoundException("Billing account not found"));
     }
@@ -40,7 +40,7 @@ public class ApiResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/")
     public void updateBillingAccount(BillingAccount billingAccount) {
-        log.info("Update billing account: {}", billingAccount.billingAccountNumber());
+        log.infof("Update billing account: {}", billingAccount.billingAccountNumber());
         updateBillingUseCase.updateBillingAccount(billingAccount);
     }
 }
