@@ -8,31 +8,22 @@ import au.com.dius.pact.core.model.annotations.Pact;
 import au.com.dius.pact.core.model.annotations.PactDirectory;
 import au.com.dius.pact.provider.junitsupport.loader.PactBroker;
 import be.telenet.origin.client.adaptor.restapi.ApiResource;
-import be.telenet.origin.client.adaptor.tbapi.TBApiBillingService;
-import be.telenet.origin.client.adaptor.tbapi.model.BillingAccountDTO;
 import be.telenet.origin.client.domain.model.BillingAccount;
-import io.quarkus.deployment.util.FileUtil;
-import io.quarkus.runtime.util.StringUtil;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.HttpMethod;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.apache.commons.io.FileUtils;
-import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 import static au.com.dius.pact.consumer.dsl.LambdaDsl.newJsonBody;
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.CoreMatchers.is;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -59,7 +50,7 @@ public class TBApiConsumerPactTest {
      *
      */
     @Pact(provider = "tbapi", consumer = "client-service-example")
-    public V4Pact createPact(PactDslWithProvider builder) throws IOException {
+    V4Pact createPact(PactDslWithProvider builder) throws IOException {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", MediaType.APPLICATION_JSON);
 
@@ -79,7 +70,7 @@ public class TBApiConsumerPactTest {
     }
 
     @Test
-    public void testConsumption() {
+    void testConsumption() {
         BillingAccount billingAccount = apiResource.findBillingAccount("0496362600");
         assertEquals("9166440568213618016", billingAccount.billingAccountNumber().number());
     }

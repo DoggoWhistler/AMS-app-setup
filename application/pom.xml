@@ -92,12 +92,12 @@
         </dependency>
 
         <!-- test stuff -->
-<!--        <dependency>-->
-<!--            <groupId>io.quarkiverse.cucumber</groupId>-->
-<!--            <artifactId>quarkus-cucumber</artifactId>-->
-<!--            <version>1.0.0</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>io.quarkiverse.cucumber</groupId>
+            <artifactId>quarkus-cucumber</artifactId>
+            <version>1.0.0</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>io.quarkiverse.pact</groupId>
             <artifactId>quarkus-pact-provider</artifactId>

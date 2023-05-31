@@ -6,6 +6,9 @@ import be.telenet.origin.client.domain.usecase.updatebilling.port.UpdateBillingU
 import be.telenet.origin.client.domain.usecase.updatebilling.service.UpdateBillingUseCase;
 import jakarta.enterprise.inject.Produces;
 
+/**
+ * As our domain is pure and free of framework annotations, we need to manually produce the beans that we need in our application.
+ */
 public class ApplicationConfig {
 
     @Produces
