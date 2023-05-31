@@ -38,7 +38,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
         providerTags = "master"
 )
 @QuarkusTest
-public class TBApiConsumerPactTest {
+class TBApiConsumerPactTest {
 
     @Inject
     ApiResource apiResource;
