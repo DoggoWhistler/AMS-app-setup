@@ -47,3 +47,12 @@ Build native executable and also run native tests:
 ```shell script
 ./mvnw package -Pnative
 ```
+
+# Pact testing
+Pacts are saved in application/target/pacts folder. To sync with pact broker:
+
+
+To run pact broker locally:
+```docker-compose -f application/src/main/docker/docker-compose-pact.yml up -d```
+Or for rancher.io users:
+```nerdctl compose -f application/src/main/docker/docker-compose-pact.yml up -d```
