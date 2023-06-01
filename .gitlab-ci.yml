@@ -6,9 +6,12 @@ variables:
   MAVEN_CLI: ./mvnw
 
 include:
-  project: common/pipeline/templates
-  file: .gitlab-ci-base.yml
-  ref: "3"
+  - project: common/pipeline/templates
+    file: .gitlab-ci-base.yml
+    ref: "3"
+  - project: common/pipeline/dependabot-standalone
+    file: .gitlab-ci.yml
+    ref: main
 
 get-version:
   extends: .get-version-base

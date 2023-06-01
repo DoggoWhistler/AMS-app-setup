@@ -58,29 +58,72 @@ Or for rancher.io users:
 ```nerdctl compose -f application/src/main/docker/docker-compose-pact.yml up -d```
 
 # Dependabot
-Dependabot scans for available dependency updates of creates merge requests if new versions are available.
+Dependabot scans the repo dependencies and automatically creates merge requests if new versions of the dependencies are available.
 This includes both public as Telenet internal dependencies.
-The configuration is stored in the .gitlab/dependabot.yml file.
-As for now only the maven package manager is configured. Dependabot does support many more package managers.
-Check the (full list here)[https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#supported-repositories-and-ecosystems]
+The configuration is stored in the [.gitlab/dependabot.yml](.gitlab/dependabot.yml) file.
 
-Create a scheduled pipeline with the following content to run dependabot:
+Dependabot support multiple package ecosystems like maven, npm, terraform, yarn, ...
+As for now only maven configured for this repo.
+Check the [full list of package ecosystems here](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#supported-repositories-and-ecosystems)
+
+## Setup
+
+**Package ecosystem configuration**
+
+All package ecosystem configuration is part of the (.gitlab/dependabot.yml)[.gitlab/dependabot.yml] file.
+Check the [Configure dependabot.yml](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file) for all options.
+
+**Gitlab CI/CD variables**
+
+Create a gitlab access token with api access so dependabot is allowed to create merge requests for your repo.
+In Gitlab:
+Avatar (top right) -> Preferences -> Access Tokens
+
+| Variable        | Value         |
+|-----------------|---------------|
+| Token name      | Dependabot    |
+| Expiration Date | never         | 
+| Select scopes   | api, read_api |
+
+```text
+Note: Setting the expiration date to never is a potential security risk, adding an end date in the not so far future brings additional maintenance.
+```
+
+Add the token as variable in the gitlab project
+CI/CD -> Variables
+
+| Variable                      | Value                                       |
+|-------------------------------|---------------------------------------------|
+| SETTINGS__GITLAB_ACCESS_TOKEN | The value of the access token created above |
+| SETTINGS__GITHUB_ACCESS_TOKEN | Check the note below                        |
+
+```text
+Note: The Github access token is optional. Github has a rate limit of 60 requests per hour for anonymous calls.
+      Exceeding the rate limit will result in a 403 error.
+      By settings the SETTINGS__GITHUB_ACCESS_TOKEN, the rate limit is increased to 5000 requests per hour.
+      At the time of writing, we do not have a Telenet github account and we strongly advise against using a personal github account to create the token 
+```
+
+
+**Gitlab pipeline**
+
+Create a scheduled pipeline for each individual package ecosystem with the following content to run dependabot:
 CI/CD -> Schedules -> New schedule
 
-| Variable             | Value                                                          | Remarks                                                                        |
-|----------------------|----------------------------------------------------------------|--------------------------------------------------------------------------------|
-| Description          | Dependabot                                                     | Descriptive name                                                               | 
-| Interval Pattern     | Every Week                                                     | Once a week is more than sufficient                                            |
-| Cron Timezone        | [UTC+2] Brussels                                               | Timezone                                                                       |
-| Target branch or tag | main or develop                                                | Point to the branch to scan and to create PR's on                              |                    
-| **Variables**        |                                                                | List of custom variables to define                                             |
-| PACKAGE_MANAGER      | maven                                                          | The package manager to run. Check available managers . ./gitlab/dependabot.yml |
-| DIRECTORY            | / (root)                                                       | Start scanning from this directory                                             |
-| PROJECT_PATH         | css/css-backend/incubator/dependabot/ocapi-public-dependabot   | Points to the project containing the dependabot pipeline                       |                                                                            
+| Variable             | Value                                 | Remarks                                                  |
+|----------------------|---------------------------------------|----------------------------------------------------------|
+| Description          | Dependabot                            | Descriptive name                                         | 
+| Interval Pattern     | Every Week                            | Once a week is more than sufficient                      |
+| Cron Timezone        | [UTC+2] Brussels                      | Timezone                                                 |
+| Target branch or tag | main or develop                       | Point to the branch to scan and to create PR's on        |                    
+| **Variables**        |                                       | List of custom variables to define                       |
+| PACKAGE_MANAGER      | maven                                 | The package manager to run.                              |
+| DIRECTORY            | / (root)                              | Start scanning from this directory                       |
+| PROJECT_PATH         | common/pipeline/dependabot-standalone | Points to the project containing the dependabot pipeline |                                                                            
+
 
 
 We use the gitlab dependabot, which is a gitlab specific wrapper for the github dependabot. All info on how to configure dependabot can be found on the github dependabot documentation.
-
 
 | Links                                               | Purpose                                       |
 |-----------------------------------------------------|-----------------------------------------------|

@@ -3,14 +3,14 @@ registries:
   edev-releases:
     type: maven-repository
     url: https://artifact-repo.rel.apps.telenet.be/repository/edev-releases
-    username: ${{ARTIFACT_REPO_USERNAME}}
-    password: ${{ARTIFACT_REPO_PASSWORD}}
+    username: ${{NEXUS_USER}}
+    password: ${{NEXUS_PASSWORD}}
     replaces-base: true
   maven-public:
     type: maven-repository
     url: https://artifact-repo.rel.apps.telenet.be/repository/maven-public
-    username: ${{ARTIFACT_REPO_USERNAME}}
-    password: ${{ARTIFACT_REPO_PASSWORD}}
+    username: ${{NEXUS_USER}}
+    password: ${{NEXUS_PASSWORD}}
     replaces-base: true
 updates:
   - package-ecosystem: maven
