@@ -6,12 +6,9 @@ variables:
   MAVEN_CLI: ./mvnw
 
 include:
-  - project: common/pipeline/templates
-    file: .gitlab-ci-base.yml
-    ref: "3"
-  - project: common/pipeline/dependabot-standalone
-    file: .gitlab-ci.yml
-    ref: main
+  project: common/pipeline/templates
+  file: .gitlab-ci-base.yml
+  ref: "3"
 
 get-version:
   extends: .get-version-base
@@ -26,7 +23,3 @@ sonarqube-check:
 
 publish-docker-image:
   extends: .publish-docker-image-base
-
-#Dependabot must be assigned to a stage
-.dependabot-gitlab:
-  stage: build
