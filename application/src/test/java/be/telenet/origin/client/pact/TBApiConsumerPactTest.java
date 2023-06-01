@@ -7,14 +7,15 @@ import au.com.dius.pact.core.model.V4Pact;
 import au.com.dius.pact.core.model.annotations.Pact;
 import au.com.dius.pact.core.model.annotations.PactDirectory;
 import au.com.dius.pact.provider.junitsupport.loader.PactBroker;
-import be.telenet.origin.client.adaptor.restapi.ApiResource;
-import be.telenet.origin.client.domain.model.BillingAccount;
+import be.telenet.origin.client.adaptor.tbapi.TBApiBillingService;
+import be.telenet.origin.client.adaptor.tbapi.model.BillingAccountDTO;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.HttpMethod;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import org.apache.commons.io.FileUtils;
+import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -23,7 +24,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static au.com.dius.pact.consumer.dsl.LambdaDsl.newJsonBody;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -41,7 +41,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class TBApiConsumerPactTest {
 
     @Inject
-    ApiResource apiResource;
+    @RestClient
+    TBApiBillingService tbApiBillingService;
 
     /**
      * The agreement we make between the consumer, the client service, and the provider. In this case TBApi
@@ -54,11 +55,9 @@ class TBApiConsumerPactTest {
         Map<String, String> headers = new HashMap<>();
         headers.put("Content-Type", MediaType.APPLICATION_JSON);
 
-        var billingAccountDTO = newJsonBody(body -> body.stringValue("colour", "white"))
-                .build();
-
         return builder
-                .uponReceiving("post request")
+                .given("billing account exists")
+                .uponReceiving("get request")
                 .path("/billingAccount/msisdn/0496362600")
                 .method(HttpMethod.GET)
                 .willRespondWith()
@@ -71,7 +70,7 @@ class TBApiConsumerPactTest {
 
     @Test
     void testConsumption() {
-        BillingAccount billingAccount = apiResource.findBillingAccount("0496362600");
-        assertEquals("9166440568213618016", billingAccount.billingAccountNumber().number());
+        BillingAccountDTO billingAccountByMSISDN = tbApiBillingService.getBillingAccountByMSISDN("0496362600");
+        assertEquals("9166440568213618016", billingAccountByMSISDN.id());
     }
 }

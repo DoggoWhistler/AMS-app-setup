@@ -24,9 +24,9 @@ public class StepDefinitions {
     public void we_search_for_a_billing_account() {
         billingAccount = apiResource.findBillingAccount(msisdn);
     }
-    @Then("I should be returned the billing account linked to {string}")
-    public void i_should_be_returned_the_billing_account_linked_to(String msisdn) {
-        assertEquals(msisdn, billingAccount.billingAccountNumber().number());
+    @Then("I should be returned the billing account {string}")
+    public void i_should_be_returned_the_billing_account_linked_to(String billingAccountNumber) {
+        assertEquals(billingAccountNumber, billingAccount.billingAccountNumber().number());
     }
 
 }
