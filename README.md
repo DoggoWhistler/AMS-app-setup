@@ -47,15 +47,23 @@ Build native executable and also run native tests:
 ```shell script
 ./mvnw package -Pnative
 ```
+# Testing
+
+The sample application has multiple levels of testing. Unit tests, architecture tests, integration tests, pact tests and BDD tests.
+These are here to get you a running start, but you can remove them if you don't need them. You will need to pass sonar checks, so we stronlgy recommend to work in a test driven way, and don't write any code that was not covered by a test upfront.
+
+# Unit testing
+We use junit 5. No special annotations are needed, just annotate with @Test and you are good to go.
+
+# Integration testing
+Use @QuarkusTest for integration testing. This will start the application in a test mode and you can use the @Inject annotation to inject dependencies.
+@QuarkusIntegrationTest will do the same, but packaged as a native binary.
+
+# BDD testing
+BDD tests are written in cucumber and can be found in the application/src/test/resources/features folder.
 
 # Pact testing
-Pacts are saved in application/target/pacts folder. To sync with pact broker:
-
-
-To run pact broker locally:
-```docker-compose -f application/src/main/docker/docker-compose-pact.yml up -d```
-Or for rancher.io users:
-```nerdctl compose -f application/src/main/docker/docker-compose-pact.yml up -d```
+Pact tests are experimental but working, and can be found in the application/src/be/telenet/origin/client/pact folder.
 
 # Dependabot
 Dependabot scans the repo dependencies and automatically creates merge requests if new versions of the dependencies are available.
