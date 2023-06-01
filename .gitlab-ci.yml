@@ -8,7 +8,7 @@ variables:
 include:
   project: common/pipeline/templates
   file: .gitlab-ci-base.yml
-  ref: "3"
+  ref: "3.18"
 
 get-version:
   extends: .get-version-base
