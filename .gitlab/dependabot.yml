@@ -1,0 +1,22 @@
+version: 2
+registries:
+  edev-releases:
+    type: maven-repository
+    url: https://artifact-repo.rel.apps.telenet.be/repository/edev-releases
+    username: ${{NEXUS_USER}}
+    password: ${{NEXUS_PASSWORD}}
+    replaces-base: true
+  maven-public:
+    type: maven-repository
+    url: https://artifact-repo.rel.apps.telenet.be/repository/maven-public
+    username: ${{NEXUS_USER}}
+    password: ${{NEXUS_PASSWORD}}
+    replaces-base: true
+updates:
+  - package-ecosystem: maven
+    directory: "/"
+    schedule:
+      interval: weekly
+    registries:
+      - edev-releases
+      - maven-public
