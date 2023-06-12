@@ -13,7 +13,6 @@ import java.util.Optional;
 public class TestConfig {
 
     @Produces
-    @ApplicationScoped
     FindBillingUseCasePort findBillingUseCase(){
         return new FindBillingUseCasePort(){
             @Override
@@ -24,7 +23,6 @@ public class TestConfig {
     }
 
     @Produces
-    @ApplicationScoped
     UpdateBillingUseCasePort updateBillingUseCase(){
         return new UpdateBillingUseCasePort() {
             @Override
