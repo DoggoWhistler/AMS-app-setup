@@ -1,4 +1,4 @@
-package be.telenet.origin.client.adaptor.tbapi.model;
+package be.telenet.origin.client.adapter.tbapi.model;
 
 import lombok.Builder;
 

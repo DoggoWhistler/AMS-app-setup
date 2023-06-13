@@ -1,6 +1,6 @@
 package be.telenet.origin.client.bdd.steps;
 
-import be.telenet.origin.client.adaptor.restapi.ApiResource;
+import be.telenet.origin.client.adapter.restapi.ApiResource;
 import be.telenet.origin.client.domain.model.BillingAccount;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

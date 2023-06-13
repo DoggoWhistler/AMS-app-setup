@@ -1,6 +1,6 @@
-package be.telenet.origin.client.adaptor.tbapi;
+package be.telenet.origin.client.adapter.tbapi;
 
-import be.telenet.origin.client.adaptor.tbapi.model.BillingAccountDTO;
+import be.telenet.origin.client.adapter.tbapi.model.BillingAccountDTO;
 import be.telenet.origin.client.domain.model.MSISDN;
 import org.junit.jupiter.api.Test;
 

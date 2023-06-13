@@ -1,4 +1,4 @@
-package be.telenet.origin.client.adaptor.restapi;
+package be.telenet.origin.client.adapter.restapi;
 
 import be.telenet.origin.client.domain.model.BillingAccount;
 import be.telenet.origin.client.domain.model.BillingAccountNumber;

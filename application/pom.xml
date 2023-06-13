@@ -39,7 +39,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!--- adaptor stuff -->
+        <!--- adapter stuff -->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-rest-client-jackson</artifactId>

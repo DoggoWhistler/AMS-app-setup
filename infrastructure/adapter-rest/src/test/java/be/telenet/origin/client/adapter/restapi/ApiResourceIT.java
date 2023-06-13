@@ -1,4 +1,4 @@
-package be.telenet.origin.client.adaptor.restapi;
+package be.telenet.origin.client.adapter.restapi;
 
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 

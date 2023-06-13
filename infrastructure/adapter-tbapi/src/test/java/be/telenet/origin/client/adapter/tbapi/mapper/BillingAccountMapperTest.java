@@ -1,7 +1,7 @@
-package be.telenet.origin.client.adaptor.tbapi.mapper;
+package be.telenet.origin.client.adapter.tbapi.mapper;
 
-import be.telenet.origin.client.adaptor.tbapi.model.BillingAccountDTO;
-import be.telenet.origin.client.adaptor.tbapi.BillingAccountMapper;
+import be.telenet.origin.client.adapter.tbapi.model.BillingAccountDTO;
+import be.telenet.origin.client.adapter.tbapi.BillingAccountMapper;
 import be.telenet.origin.client.domain.model.BillingAccount;
 import be.telenet.origin.client.domain.model.BillingAccountNumber;
 import be.telenet.origin.client.domain.model.MSISDN;

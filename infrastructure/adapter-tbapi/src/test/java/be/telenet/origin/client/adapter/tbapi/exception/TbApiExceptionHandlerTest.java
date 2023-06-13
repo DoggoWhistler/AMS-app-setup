@@ -1,4 +1,4 @@
-package be.telenet.origin.client.adaptor.tbapi.exception;
+package be.telenet.origin.client.adapter.tbapi.exception;
 
 import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.core.Response;
@@ -6,7 +6,6 @@ import org.jboss.resteasy.client.exception.ResteasyWebApplicationException;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 class TbApiExceptionHandlerTest {
 
@@ -22,7 +21,7 @@ class TbApiExceptionHandlerTest {
         Response response = new TbApiExceptionHandler().toResponse(test);
 
         assertThat(response.getStatus()).isEqualTo(404);
-        assertThat(response.getEntity().getClass()).isEqualTo(be.telenet.origin.client.adaptor.tbapi.exception.ErrorMessage.class);
+        assertThat(response.getEntity().getClass()).isEqualTo(ErrorMessage.class);
         assertThat(((ErrorMessage) response.getEntity()).message()).isEqualTo("tb api error: {\"code\":\"CBM-CUST-0003\",\"type\":\"LOGIC\",\"message\":\"Failed to find Billing Account with MSISDN 0469213586\"}");
     }
 
