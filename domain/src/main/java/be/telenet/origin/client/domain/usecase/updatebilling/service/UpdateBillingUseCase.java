@@ -1,14 +1,14 @@
 package be.telenet.origin.client.domain.usecase.updatebilling.service;
 
 import be.telenet.origin.client.domain.model.BillingAccount;
-import be.telenet.origin.client.domain.usecase.updatebilling.port.BillingAccountRepositoryPort;
+import be.telenet.origin.client.domain.usecase.updatebilling.port.UpdateBillingRepositoryPort;
 import be.telenet.origin.client.domain.usecase.updatebilling.port.UpdateBillingUseCasePort;
 
 public class UpdateBillingUseCase implements UpdateBillingUseCasePort {
 
-    private final BillingAccountRepositoryPort billingAccountRepository;
+    private final UpdateBillingRepositoryPort billingAccountRepository;
 
-    public UpdateBillingUseCase(BillingAccountRepositoryPort repository){
+    public UpdateBillingUseCase(UpdateBillingRepositoryPort repository){
         this.billingAccountRepository = repository;
     }
 

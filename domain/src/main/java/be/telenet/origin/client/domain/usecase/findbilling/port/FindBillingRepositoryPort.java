@@ -5,6 +5,6 @@ import be.telenet.origin.client.domain.model.MSISDN;
 
 import java.util.Optional;
 
-public interface BillingAccountRepositoryPort {
+public interface FindBillingRepositoryPort {
     Optional<BillingAccount> findBillingAccount(MSISDN billingAccountNumber);
 }

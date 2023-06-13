@@ -2,14 +2,14 @@ package be.telenet.origin.client.domain.usecase.updatebilling.service;
 
 import be.telenet.origin.client.domain.model.BillingAccount;
 import be.telenet.origin.client.domain.model.MSISDN;
-import be.telenet.origin.client.domain.usecase.updatebilling.port.BillingAccountRepositoryPort;
+import be.telenet.origin.client.domain.usecase.updatebilling.port.UpdateBillingRepositoryPort;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 class UpdateBillingUseCaseTest {
 
-    BillingAccountRepositoryPort repository = billingAccount -> billingAccount;
+    UpdateBillingRepositoryPort repository = billingAccount -> billingAccount;
 
     @Test
     void testConstructor() {

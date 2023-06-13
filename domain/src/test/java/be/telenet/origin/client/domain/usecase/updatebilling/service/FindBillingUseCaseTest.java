@@ -6,7 +6,7 @@ import be.telenet.origin.client.domain.model.MSISDN;
 import be.telenet.origin.client.domain.model.exception.InvalidMSISDNException;
 import be.telenet.origin.client.domain.usecase.findbilling.port.FindBillingUseCasePort;
 import be.telenet.origin.client.domain.usecase.findbilling.service.FindBillingUseCase;
-import be.telenet.origin.client.domain.usecase.updatebilling.infrastructure.InMemoryBillingAccountRepository;
+import be.telenet.origin.client.domain.usecase.updatebilling.infrastructure.InMemoryBillingRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,12 +18,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class FindBillingUseCaseTest {
 
-    private InMemoryBillingAccountRepository repository;
+    private InMemoryBillingRepository repository;
     private FindBillingUseCasePort useCase;
 
     @BeforeEach
     void setupDependencies() {
-        repository = new InMemoryBillingAccountRepository();
+        repository = new InMemoryBillingRepository();
         useCase = new FindBillingUseCase(repository);
     }
 

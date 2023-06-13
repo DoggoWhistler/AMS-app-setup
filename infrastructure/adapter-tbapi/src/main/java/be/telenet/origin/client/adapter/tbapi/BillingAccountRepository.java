@@ -3,6 +3,8 @@ package be.telenet.origin.client.adapter.tbapi;
 import be.telenet.origin.client.adapter.tbapi.model.BillingAccountDTO;
 import be.telenet.origin.client.domain.model.BillingAccount;
 import be.telenet.origin.client.domain.model.MSISDN;
+import be.telenet.origin.client.domain.usecase.findbilling.port.FindBillingRepositoryPort;
+import be.telenet.origin.client.domain.usecase.updatebilling.port.UpdateBillingRepositoryPort;
 import jakarta.enterprise.context.ApplicationScoped;
  import lombok.extern.jbosslog.JBossLog;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
@@ -11,7 +13,7 @@ import java.util.Optional;
 
 @JBossLog
 @ApplicationScoped
-public class BillingAccountRepository implements be.telenet.origin.client.domain.usecase.findbilling.port.BillingAccountRepositoryPort, be.telenet.origin.client.domain.usecase.updatebilling.port.BillingAccountRepositoryPort {
+public class BillingAccountRepository implements FindBillingRepositoryPort, UpdateBillingRepositoryPort {
 
     private final TBApiBillingService tbApiBillingService;
 
