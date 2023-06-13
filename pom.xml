@@ -27,7 +27,7 @@
     <assertj-core.version>3.23.1</assertj-core.version>
 
     <!-- jacoco Code Coverage Reports -->
-    <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
+    <jacoco-maven-plugin.version>0.8.10</jacoco-maven-plugin.version>
     <sonar.projectName>Client Service Template</sonar.projectName>
     <sonar.coverage.exclusions>
       **/*Config*.java,
