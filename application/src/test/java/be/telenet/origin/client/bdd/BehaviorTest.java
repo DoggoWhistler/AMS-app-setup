@@ -1,9 +1,6 @@
 package be.telenet.origin.client.bdd;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
-import com.github.tomakehurst.wiremock.junit5.WireMockRuntimeInfo;
-import com.github.tomakehurst.wiremock.junit5.WireMockTest;
-import io.cucumber.java.Before;
 import io.quarkiverse.cucumber.CucumberQuarkusTest;
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.AfterAll;
@@ -11,8 +8,10 @@ import org.junit.jupiter.api.BeforeAll;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static com.github.tomakehurst.wiremock.client.WireMock.get;
+import static com.github.tomakehurst.wiremock.client.WireMock.okJson;
 
 /**
  * We need to extend the CucumberQuarkusTest class if we want to use quarkus beans in the step definitions.
@@ -31,7 +30,7 @@ class BehaviorTest extends CucumberQuarkusTest {
         wireMockServer.stubFor(
                 get("/billingAccount/msisdn/0496362600")
                 .willReturn(
-                        okJson(FileUtils.readFileToString(new File("src/test/resources/billingContact.json")))
+                        okJson(FileUtils.readFileToString(new File("src/test/resources/billingContact.json"), Charset.forName("UTF-8")))
                 )
         );
     }

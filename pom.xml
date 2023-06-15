@@ -199,6 +199,7 @@
           <configuration>
             <compilerArgs>
               <arg>-parameters</arg>
+              <arg>-Xlint:deprecation</arg>
             </compilerArgs>
             <annotationProcessorPaths>
               <path>

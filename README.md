@@ -1,7 +1,9 @@
 # client-service-template
 
-Use this template to kickstart new client services. The sample code is using DDD concepts and provides a REST API (can be used by Angular components or other clients), and consumes the TB API.
+Use this template to kickstart new client or domain services. The sample code is using DDD concepts and provides a REST API (can be used by Angular components or other clients), and consumes the TB API.
 Unless your laptop does not have access to api gw, you can run this locally and fetch data from the TB API.
+
+For those new to DDD, please read [this](https://confluence.rel.apps.telenet.be/display/DIGIENGATR/DSA+-+From+layered+architecture+to+hexagonal+architecture+with+DDD) article.
 
 ## Features
 
@@ -26,15 +28,16 @@ Unless your laptop does not have access to api gw, you can run this locally and 
 
 ### Using IntelliJ (recommended, hot reloading of all modules)
 
-Launch the "application" module as a quarkus application and go to http://localhost:8080/q/dev-v1/ to see the dev UI. When making **any** changes, quarkus will automatically reload the application. Can be used both in debug as normal mode.
+Launch the "application" module as a quarkus application and press 'd' in the console or go to http://localhost:8080/q/dev-v1/ to see the dev UI. When making **any** changes, quarkus will automatically reload the application. Can be used both in debug as normal mode.
 
 ### Using the command line (only hot reloads the application module)
 
 You can run your application in dev mode that enables live coding using:
 ```shell script
-./mvnw clean install
-./mvnw compile quarkus:dev
+./mvnw clean install (once, no need to do after every code change)
+./mvnw quarkus:dev -pl application
 ```
+Quarkus will pick up any code change and reload. If you think it has not picked up the code change and want to force restart, hit "s" in the console to trigger a reload.
 
 ## Building the application
 
