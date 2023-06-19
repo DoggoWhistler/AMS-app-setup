@@ -7,7 +7,7 @@ import au.com.dius.pact.core.model.V4Pact;
 import au.com.dius.pact.core.model.annotations.Pact;
 import au.com.dius.pact.core.model.annotations.PactDirectory;
 import au.com.dius.pact.provider.junitsupport.loader.PactBroker;
-import be.telenet.origin.client.adapter.tbapi.TBApiBillingService;
+import be.telenet.origin.client.adapter.tbapi.TBApiBillingRestClient;
 import be.telenet.origin.client.adapter.tbapi.model.BillingAccountDTO;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.inject.Inject;
@@ -42,7 +42,7 @@ class TBApiConsumerPactTest {
 
     @Inject
     @RestClient
-    TBApiBillingService tbApiBillingService;
+    TBApiBillingRestClient tbApiBillingRestClient;
 
     /**
      * The agreement we make between the consumer, the client service, and the provider. In this case TBApi
@@ -70,7 +70,7 @@ class TBApiConsumerPactTest {
 
     @Test
     void testConsumption() {
-        BillingAccountDTO billingAccountByMSISDN = tbApiBillingService.getBillingAccountByMSISDN("0496362600");
+        BillingAccountDTO billingAccountByMSISDN = tbApiBillingRestClient.getBillingAccountByMSISDN("0496362600");
         assertEquals("9166440568213618016", billingAccountByMSISDN.id());
     }
 }

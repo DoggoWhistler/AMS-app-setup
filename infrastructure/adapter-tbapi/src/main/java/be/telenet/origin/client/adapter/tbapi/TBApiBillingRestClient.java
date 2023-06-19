@@ -10,7 +10,7 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 @Dependent
 @RegisterRestClient
-public interface TBApiBillingService {
+public interface TBApiBillingRestClient {
 
     @GET
     @Path("/billingAccount/msisdn/{msisdn}")

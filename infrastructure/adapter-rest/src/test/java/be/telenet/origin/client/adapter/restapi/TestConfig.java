@@ -2,8 +2,8 @@ package be.telenet.origin.client.adapter.restapi;
 
 import be.telenet.origin.client.domain.model.BillingAccount;
 import be.telenet.origin.client.domain.model.MSISDN;
-import be.telenet.origin.client.domain.usecase.findbilling.port.FindBillingUseCasePort;
-import be.telenet.origin.client.domain.usecase.updatebilling.port.UpdateBillingUseCasePort;
+import be.telenet.origin.client.domain.usecase.findbilling.FindBillingUseCasePort;
+import be.telenet.origin.client.domain.usecase.updatebilling.UpdateBillingUseCasePort;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.enterprise.inject.Produces;
 

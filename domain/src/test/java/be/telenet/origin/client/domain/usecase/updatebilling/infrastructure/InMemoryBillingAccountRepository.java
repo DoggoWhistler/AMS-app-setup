@@ -2,14 +2,14 @@ package be.telenet.origin.client.domain.usecase.updatebilling.infrastructure;
 
 import be.telenet.origin.client.domain.model.BillingAccount;
 import be.telenet.origin.client.domain.model.MSISDN;
-import be.telenet.origin.client.domain.usecase.findbilling.port.FindBillingRepositoryPort;
-import be.telenet.origin.client.domain.usecase.updatebilling.port.UpdateBillingRepositoryPort;
+import be.telenet.origin.client.domain.usecase.findbilling.FindBillingRepositoryPort;
+import be.telenet.origin.client.domain.usecase.updatebilling.UpdateBillingRepositoryPort;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class InMemoryBillingRepository implements UpdateBillingRepositoryPort, FindBillingRepositoryPort {
+public class InMemoryBillingAccountRepository implements UpdateBillingRepositoryPort, FindBillingRepositoryPort {
 
     private final List<BillingAccount> billingAccounts = new ArrayList<>();
 

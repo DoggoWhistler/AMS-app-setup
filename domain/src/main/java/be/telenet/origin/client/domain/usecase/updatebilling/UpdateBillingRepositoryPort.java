@@ -1,4 +1,4 @@
-package be.telenet.origin.client.domain.usecase.updatebilling.port;
+package be.telenet.origin.client.domain.usecase.updatebilling;
 
 import be.telenet.origin.client.domain.model.BillingAccount;
 

@@ -3,10 +3,10 @@ package be.telenet.origin.client.adapter.tbapi;
 import be.telenet.origin.client.adapter.tbapi.model.BillingAccountDTO;
 import be.telenet.origin.client.domain.model.BillingAccount;
 import be.telenet.origin.client.domain.model.MSISDN;
-import be.telenet.origin.client.domain.usecase.findbilling.port.FindBillingRepositoryPort;
-import be.telenet.origin.client.domain.usecase.updatebilling.port.UpdateBillingRepositoryPort;
+import be.telenet.origin.client.domain.usecase.findbilling.FindBillingRepositoryPort;
+import be.telenet.origin.client.domain.usecase.updatebilling.UpdateBillingRepositoryPort;
 import jakarta.enterprise.context.ApplicationScoped;
- import lombok.extern.jbosslog.JBossLog;
+import lombok.extern.jbosslog.JBossLog;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import java.util.Optional;
@@ -15,15 +15,15 @@ import java.util.Optional;
 @ApplicationScoped
 public class BillingAccountRepository implements FindBillingRepositoryPort, UpdateBillingRepositoryPort {
 
-    private final TBApiBillingService tbApiBillingService;
+    private final TBApiBillingRestClient tbApiBillingRestClient;
 
-    BillingAccountRepository(@RestClient TBApiBillingService tbApiBillingService) {
-        this.tbApiBillingService = tbApiBillingService;
+    BillingAccountRepository(@RestClient TBApiBillingRestClient tbApiBillingRestClient) {
+        this.tbApiBillingRestClient = tbApiBillingRestClient;
     }
 
     @Override
     public Optional<BillingAccount> findBillingAccount(MSISDN msisdn) {
-        BillingAccountDTO billingAccountByMSISDN = tbApiBillingService.getBillingAccountByMSISDN(msisdn.msisdn());
+        BillingAccountDTO billingAccountByMSISDN = tbApiBillingRestClient.getBillingAccountByMSISDN(msisdn.msisdn());
         if (billingAccountByMSISDN != null) {
             return Optional.of(BillingAccountMapper.INSTANCE.dtoToBillingAccount(billingAccountByMSISDN));
         } else {
