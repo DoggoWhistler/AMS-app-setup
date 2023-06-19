@@ -12,9 +12,9 @@ public class TbApiExceptionHandler implements ExceptionMapper<ResteasyWebApplica
 
     @Override
     public Response toResponse(ResteasyWebApplicationException e) {
-        Response tbApiResonse = e.unwrap().getResponse();
-        String tbApiError = tbApiResonse.readEntity(String.class);
-        int status = tbApiResonse.getStatus();
+        Response tbApiResponse = e.unwrap().getResponse();
+        String tbApiError = tbApiResponse.readEntity(String.class);
+        int status = tbApiResponse.getStatus();
         log.errorf("TBAPI http code {}: {}", status, tbApiError);
         return Response
                 .status(status)

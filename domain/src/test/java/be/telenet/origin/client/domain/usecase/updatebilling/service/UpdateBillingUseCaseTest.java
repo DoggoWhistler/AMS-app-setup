@@ -2,7 +2,8 @@ package be.telenet.origin.client.domain.usecase.updatebilling.service;
 
 import be.telenet.origin.client.domain.model.BillingAccount;
 import be.telenet.origin.client.domain.model.MSISDN;
-import be.telenet.origin.client.domain.usecase.updatebilling.port.UpdateBillingRepositoryPort;
+import be.telenet.origin.client.domain.usecase.updatebilling.UpdateBillingRepositoryPort;
+import be.telenet.origin.client.domain.usecase.updatebilling.UpdateBillingUseCase;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
