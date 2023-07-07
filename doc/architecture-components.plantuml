@@ -1,0 +1,13 @@
+@startuml
+[bootstrap]<<module>>
+[bootstrap] -> [adapter]
+[bootstrap] -> [application]
+
+[adapter]<<module>>
+[adapter] -> [application]
+
+[application]<<module>>
+[application] -> [model]
+
+[model]<<module>>
+@enduml

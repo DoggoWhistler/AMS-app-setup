@@ -21,7 +21,6 @@ For those new to DDD, please read [this](https://confluence.rel.apps.telenet.be/
 - Use interfaces as ports to avoid coupling between layers.
 - Use MapStruct to map between layers.
 - Use JUnit 5 and Mockito for unit tests.
-- Pact tests can be used for API contract testing, but is currently experimental.
 - OpenAPI / swagger. API's and application documented and with sample values.
 
 ## Running the application in dev mode
@@ -52,7 +51,7 @@ Build native executable and also run native tests:
 ```
 ## Testing
 
-The sample application has multiple levels of testing. Unit tests, architecture tests, integration tests, pact tests and BDD tests.
+The sample application has multiple levels of testing. Unit tests, architecture tests, integration tests and BDD tests.
 These are here to get you a running start, but you can remove them if you don't need them. You will need to pass sonar checks, so we stronlgy recommend to work in a test driven way, and don't write any code that was not covered by a test upfront.
 
 ### Unit testing
@@ -64,6 +63,3 @@ Use @QuarkusTest for integration testing. This will start the application in a t
 
 ### BDD testing
 BDD tests are written in cucumber and can be found in the application/src/test/resources/features folder.
-
-### Pact testing
-Pact tests are experimental but working, and can be found in the application/src/be/telenet/origin/client/pact folder.
