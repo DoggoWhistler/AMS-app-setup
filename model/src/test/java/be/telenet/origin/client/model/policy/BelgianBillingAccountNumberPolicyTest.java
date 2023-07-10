@@ -1,9 +1,9 @@
 package be.telenet.origin.client.model.policy;
 
-import be.telenet.origin.client.model.policy.BelgianBillingAccountNumberPolicy;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class BelgianBillingAccountNumberPolicyTest {
 
