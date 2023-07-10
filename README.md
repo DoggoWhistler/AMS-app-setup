@@ -3,7 +3,7 @@
 Use this template to kickstart new client or domain services. The sample code is using DDD concepts and provides a REST API (can be used by Angular components or other clients), and consumes the TB API.
 Unless your laptop does not have access to api gw, you can run this locally and fetch data from the TB API.
 
-For those new to DDD, please read [this](https://confluence.rel.apps.telenet.be/display/DIGIENGATR/DSA+-+From+layered+architecture+to+hexagonal+architecture+with+DDD) article.
+For those new to the Hexagonal Architecture and/or DDD, please read [this](https://confluence.rel.apps.telenet.be/display/DIGIENGATR/DSA+-+From+layered+architecture+to+hexagonal+architecture+with+DDD) article.
 
 ## Features
 
@@ -12,12 +12,12 @@ For those new to DDD, please read [this](https://confluence.rel.apps.telenet.be/
 - hexagonal architecture
 
 ## Design decisions
-- Clean DDD with hexagonal architecture does not allow any framework dependencies in your domain. For better QOL and less boilerplate code, I decided to use lombok and mapstruct. This is a tradeoff, but I think it is worth it as the produced class files have no trace of these frameworks. They are compile time only.
+- Clean DDD with hexagonal architecture does not allow any framework dependencies in your domain. For better QOL and less boilerplate code, we decided to use lombok and mapstruct. This is a tradeoff, but we think it is worth it as the produced class files have no trace of these frameworks. They are compile time only.
 - Jboss logging was used as this is handled by quarkus OOTB and can be natively compiled.
 
 ## Concepts used in this template
 
-- Hexagonal architecture. The domain module should be the core of the application, and the other modules should be adapters to the domain. The domain module should not depend on any other module.
+- Hexagonal architecture. The application module together with the model module should be the core of the application, and the other modules should be adapters to the domain. The applciation module should not depend on any other module.
 - Use interfaces as ports to avoid coupling between layers.
 - Use MapStruct to map between layers.
 - Use JUnit 5 and Mockito for unit tests.
