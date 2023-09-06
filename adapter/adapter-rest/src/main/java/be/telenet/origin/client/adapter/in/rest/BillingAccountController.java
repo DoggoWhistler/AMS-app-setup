@@ -33,6 +33,7 @@ public class BillingAccountController {
     public BillingAccount findBillingAccount(@PathParam("msisdn") @Parameter(example = "0467917023") String msisdn) {
         log.debugf("Find billing account: {}", msisdn);
         Optional<BillingAccount> billingAccount = findBillingAccountUseCase.findBillingAccount(new MSISDN(msisdn));
+
         return billingAccount.orElseThrow(() -> new NotFoundException("Billing account not found"));
     }
     @PUT
