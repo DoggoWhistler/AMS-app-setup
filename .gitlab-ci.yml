@@ -1,7 +1,7 @@
 variables:
-  PROJECT: "product-finder"
-  PROJECT_TITLE: "product-finder"
-  MAVEN_BUILD_IMAGE: $CI_HARBOR_REGISTRY/ghcr/graalvm/native-image@sha256:a41e7615675968800e0312737ba9e91a9c3de3c334c0e659ce90d46462f3a68d
+  PROJECT: "The name of your openshift namespace aka project"
+  PROJECT_TITLE: "client-service-template-example"
+  MAVEN_BUILD_IMAGE: $CI_HARBOR_REGISTRY/ghcr/graalvm/native-image:22.3.2
   DOCKERFILE_PATH: $CI_PROJECT_DIR/bootstrap/src/main/docker/Dockerfile.native-micro
   MAVEN_CLI: ./mvnw
 
@@ -19,21 +19,8 @@ maven-build:
 
 #Use the sonarqube check for native images
 sonarqube-check:
-  image: maven:3.6.3-jdk-11
-  stage: build
-  variables:
-    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
-    GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
-  cache:
-    key: "${CI_JOB_NAME}"
-    paths:
-      - .sonar/cache
-  script:
-    - mvn -s settings.xml verify sonar:sonar -Dsonar.qualitygate.wait=true -Pcoverage
-  allow_failure: true
-  only:
-    - merge_requests
-    - develop
+  extends: .sonarqube-check-native-base
 
 publish-docker-image:
   extends: .publish-docker-image-base
+
