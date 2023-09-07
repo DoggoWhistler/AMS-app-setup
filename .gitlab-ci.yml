@@ -1,7 +1,7 @@
 variables:
   PROJECT: "product-finder"
   PROJECT_TITLE: "product-finder"
-  MAVEN_BUILD_IMAGE: $CI_HARBOR_REGISTRY/ghcr/graalvm/native-image:22.3.2
+  MAVEN_BUILD_IMAGE: $CI_HARBOR_REGISTRY/ghcr/graalvm/native-image@sha256:a41e7615675968800e0312737ba9e91a9c3de3c334c0e659ce90d46462f3a68d
   DOCKERFILE_PATH: $CI_PROJECT_DIR/bootstrap/src/main/docker/Dockerfile.native-micro
   MAVEN_CLI: ./mvnw
 
