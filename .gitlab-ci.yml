@@ -17,9 +17,6 @@ get-version:
 maven-build:
   extends: .maven-build-native-base
 
-#Use the sonarqube check for native images
-sonarqube-check:
-  extends: .sonarqube-check-native-base
 
 publish-docker-image:
   extends: .publish-docker-image-base
